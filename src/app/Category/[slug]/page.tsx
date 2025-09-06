@@ -237,7 +237,7 @@ export default function CategoryPage() {
               return (
                 <article key={post._id} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-gray-700">
                   <div className="relative overflow-hidden">
-                    <div className="w-full h-48 bg-gradient-to-br from-blue-600 to-cyan-700 group-hover:scale-105 transition duration-300 flex items-center justify-center">
+                    <div className="w-full h-34 bg-gradient-to-br from-blue-600 to-cyan-700 group-hover:scale-105 transition duration-300 flex items-center justify-center">
                       {post. featuredImage ? (
                         <img 
                           src={post. featuredImage} 
