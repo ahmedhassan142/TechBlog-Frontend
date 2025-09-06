@@ -75,16 +75,16 @@ useEffect(() => {
       setLoading(true);
       
       // Fetch all data in parallel
-      const [blogsResponse, categoriesResponse, usersResponse] = await Promise.all([
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs`),
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categorie`),
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/user`)
-      ]);
-
-      const blogs = blogsResponse.data.data || [];
-      const categories = categoriesResponse.data.data || [];
-      const users = usersResponse.data.data || [];
-
+   const [blogsResponse, categoriesResponse, usersResponse] = await Promise.all([
+             axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs`),
+             axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categories`),
+             axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/user`)
+           ]);
+   
+           const blogs = blogsResponse.data.data || [];
+           const categories = categoriesResponse.data.data || [];
+           const users = usersResponse.data.data || [];
+   
       // Helper function to extract numeric value from views/likes
    const getNumericValue = (value: any): number => {
   if (typeof value === 'number') return value;
