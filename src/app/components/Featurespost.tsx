@@ -27,7 +27,7 @@ export default function FeaturedPosts() {
     const fetchTopPosts = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:4001/api/blogs/top-views?limit=4');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/top-views?limit=4`);
         const data = await response.json();
         
         if (data.success) {

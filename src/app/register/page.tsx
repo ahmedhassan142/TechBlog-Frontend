@@ -54,7 +54,7 @@ const Register = () => {
     try {
       const { confirmPassword, ...registerData } = formData;
       const { data: res } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/user/register`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/user/register`,
         registerData
       );
       

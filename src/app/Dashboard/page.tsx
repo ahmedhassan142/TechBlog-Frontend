@@ -76,9 +76,9 @@ useEffect(() => {
       
       // Fetch all data in parallel
       const [blogsResponse, categoriesResponse, usersResponse] = await Promise.all([
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/blogs`),
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/categorie`),
-        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/user`)
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs`),
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categorie`),
+        axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/user`)
       ]);
 
       const blogs = blogsResponse.data.data || [];
