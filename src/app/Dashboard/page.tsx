@@ -53,7 +53,7 @@ interface Stats {
   recentUsers: User[];
 }
 
-export default function DashboardStats({ refreshFlag }: DashboardStatsProps) {
+export default function DashboardPage({ refreshFlag }: DashboardStatsProps) {
   const [stats, setStats] = useState<Stats>({
     totalBlogs: 0,
     publishedBlogs: 0,
