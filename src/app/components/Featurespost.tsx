@@ -111,7 +111,7 @@ export default function FeaturedPosts() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 featured-posts-grid">
           {posts.map((post) => (
             <article key={post._id} className="featured-post-card rounded-lg overflow-hidden group">
-              <div className="relative h-34 w-full overflow-hidden">
+              <div className=" h-34 w-full overflow-hidden">
                 {post.featuredImage ? (
                   <Image
                     src={post.featuredImage}
