@@ -17,7 +17,7 @@ export default function BlogList({ onEditBlog, refreshFlag }: BlogListProps) {
     const fetchBlogs = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:4001/api/blogs');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs`);
         const data = await response.json();
         setBlogs(data.data || []);
       } catch (error) {
@@ -33,7 +33,7 @@ export default function BlogList({ onEditBlog, refreshFlag }: BlogListProps) {
   const handleDelete = async (blogId: string) => {
     if (confirm('Are you sure you want to delete this blog post?')) {
       try {
-        const response = await fetch(`http://localhost:4001/api/blogs/${blogId}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/${blogId}`, {
           method: 'DELETE'
         });
         

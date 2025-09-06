@@ -56,7 +56,7 @@ export default function CategoryPage() {
       setError(null);
       
       // Fetch category details
-      const categoryResponse = await axios.get(`http://localhost:4001/api/categories/slug/${categoryslug}`);
+      const categoryResponse = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categories/slug/${categoryslug}`);
       
       if (categoryResponse.data.success) {
         const categoryData = categoryResponse.data.data;
@@ -65,7 +65,7 @@ export default function CategoryPage() {
         // Fetch blog posts for this category using the provided API
         try {
           const blogResponse = await axios.get(
-            `http://localhost:4001/api/blogs/categories/${categoryslug}/blogs`
+            `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/categories/${categoryslug}/blogs`
           );
           
           console.log('Blog API response:', blogResponse.data); // Debug log

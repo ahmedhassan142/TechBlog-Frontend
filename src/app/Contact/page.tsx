@@ -24,7 +24,7 @@ export default function ContactPage() {
     setLoading(true);
     
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://localhost:4001"}/api/contact`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ export const useNewsletter = () => {
 
   const submitNewsletter = async (data: NewsletterFormData) => {
     try {
-      const response = await fetch('http://localhost:4001/api/subscribe', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/subscribe`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

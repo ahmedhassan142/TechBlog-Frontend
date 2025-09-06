@@ -106,14 +106,14 @@ export default function BlogPostPage() {
       setLoading(true);
       setError(null);
       
-      const response = await axios.get(`http://localhost:4001/api/blogs/slug/${slug}`);
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/slug/${slug}`);
       
       if (response.data.success) {
         setBlog(response.data.data);
         
         // Increment views
         try {
-          await axios.get(`http://localhost:4001/api/blogs/${response.data.data._id}/views`);
+          await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/${response.data.data._id}/views`);
         } catch (viewError) {
           console.warn('Failed to increment views:', viewError);
         }
@@ -170,7 +170,7 @@ const handleLike = async () => {
     console.log("Like attempt - Final headers:", headers);
     
     const response = await axios.post(
-      `http://localhost:4001/api/blogs/${blog._id}/like`,
+      `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/${blog._id}/like`,
       {},
       { headers }
     );
@@ -249,7 +249,7 @@ const handleLike = async () => {
     try {
       setCommentLoading(true);
       const response = await axios.post(
-        `http://localhost:4001/api/blogs/${blog._id}/comments`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/${blog._id}/comments`,
         isAuthenticated 
           ? { text: commentText }
           : { text: commentText, name: commentName, email: commentEmail }
@@ -312,7 +312,7 @@ const handleLike = async () => {
     
       setCommentLikeLoading(commentId);
       const response = await axios.post(
-        `http://localhost:4001/api/blogs/${blog._id}/comments/${commentId}/like`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/${blog._id}/comments/${commentId}/like`,
          {},
       { headers }
       );
@@ -343,7 +343,7 @@ const handleLike = async () => {
     
     try {
       const response = await axios.delete(
-        `http://localhost:4001/api/blogs/${blog._id}/comments/${commentId}`
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs/${blog._id}/comments/${commentId}`
       );
       
       if (response.data.success) {

@@ -25,7 +25,7 @@ export default function VerifyEmail() {
       }
 
       try {
-        const response = await fetch(`http://localhost:4001/api/verify/${token}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/verify/${token}`);
         const data = await response.json();
         
         if (data.success) {

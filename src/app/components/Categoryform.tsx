@@ -79,7 +79,7 @@ export default function CategoryForm({ category, onSubmit, onCancel }: CategoryF
     const fetchCategories = async () => {
       try {
         setFetchLoading(true);
-        const response = await axios.get('http://localhost:4001/api/categories');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categories`);
         setCategories(response.data.data || []);
       } catch (error: any) {
         console.error('Error fetching categories:', error);

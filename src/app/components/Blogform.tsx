@@ -117,7 +117,7 @@ export default function BlogForm({ blog, onCancel, onSuccess }: BlogFormProps) {
     const fetchCategories = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('http://localhost:4001/api/categories');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categories`);
         
         if (response.data && response.data.data) {
           setCategories(response.data.data || []);

@@ -76,9 +76,9 @@ export default function DashboardStats({ refreshFlag }: DashboardStatsProps) {
         
         // Fetch all data in parallel
         const [blogsResponse, categoriesResponse, usersResponse] = await Promise.all([
-          axios.get('http://localhost:4001/api/blogs'),
-          axios.get('http://localhost:4001/api/categories'),
-          axios.get('http://localhost:4001/api/user')
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/blogs`),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categories`),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/user`)
         ]);
 
         const blogs = blogsResponse.data.data || [];

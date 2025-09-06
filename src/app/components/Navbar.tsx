@@ -59,7 +59,7 @@ export default function Navbar({ categories }: NavbarProps) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:4001/api/categories');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}/api/categories`);
         const data = await response.json();
         setAllCategories(data.data || []);
       } catch (error) {

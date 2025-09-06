@@ -51,7 +51,7 @@ export const ProfileProvider: React.FC<{children: ReactNode}> = ({ children }) =
       setError(null);
       
       const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4001"}/api/user/profile`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com"}//api/user/profile`,
         {
           withCredentials: true
         }

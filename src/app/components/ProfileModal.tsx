@@ -123,7 +123,7 @@ export default function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
 useEffect(() => {
   const fetchAvatars = async () => {
     try {
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4001';
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com";
       const response = await axios.get(
         `${API_BASE_URL}/api/avatar/all`,
         {
@@ -226,7 +226,7 @@ useEffect(() => {
 
     try {
       setLoading(true);
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:4001';
+      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://techblog-backend-w6kj.onrender.com";
       
       const updateData: any = {
         firstName: formData.firstName,
